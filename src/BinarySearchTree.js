@@ -137,4 +137,18 @@ class BinarySearchTree {
         }
         return values;
     }
+    dfsPreOrder(values = []) {
+        //first process the current node
+        values.push(this.value);
+
+        //then process the left node
+        if (this.left) {
+            values = this.left.dfsPreOrder(values);
+        }
+        //finally process the right node
+        if (this.right) {
+            values = this.right.dfsPreOrder(Values);
+        }
+        return values;
+    }
 }
