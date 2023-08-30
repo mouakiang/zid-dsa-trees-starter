@@ -123,4 +123,18 @@ class BinarySearchTree {
         }
         return this.left._findMin();
     }
+    dfsInOrder(values = []) {
+        //process the left node recursively
+        if (this.left) {
+            values = this.left.dfsInOrder(values);
+        }
+        //process the current node
+        values.push(this.value);
+
+        //process the right node recursively
+        if (this.right) {
+            values = this.right.dfsInOrder(values);
+        }
+        return values;
+    }
 }
