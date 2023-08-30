@@ -158,6 +158,19 @@ class BinarySearchTree {
         return true;
     }
 
+    findKthLargestValue(k) {
+        // Use the existing `dfsInOrder()` method to traverse the tree.
+        const values = this.dfsInOrder();
+        const kthIndex = values.length - k;
+
+        // Ensure that the index is within the bounds of the array.
+        if (kthIndex >= 0) {
+            return values[kthIndex];
+        } else {
+            console.error('k value exceeds the size of the BST.');
+        }
+    }
+
     _replaceWith(node) {
         if (this.parent) {
             if (this == this.parent.left) {
